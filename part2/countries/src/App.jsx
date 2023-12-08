@@ -19,6 +19,7 @@ const App = () => {
   useEffect(hook, [])
 
   const countriesSelected = filter == '' ? [] : countries.filter((country) => country.name.common.toLowerCase().includes(filter.toLowerCase()))
+  const lengthOne = countriesSelected.length == 1
 
   // const countriesToShow = countriesSelected > 10 ? 'Too many matches, specify another filter' : countriesSelected
 
@@ -39,10 +40,12 @@ const App = () => {
   return (
     <div>
       <Filter filter={filter} setFilter={setFilter} />
-      {/* {console.log(countries)} */}
-      {console.log(countriesSelected)}
-      {countriesSelected.length > 10 ? <p>Too many matches, specify another filter</p> : countriesSelected.map(country => <Country key={country.name.official} country={country} />)}
-      {/* {countriesSelected.map(country => <Country key={country.name.official} country={country} />)} */}
+      {countriesSelected.length > 10 ? <p>Too many matches, specify another filter</p> : countriesSelected.map(
+        country => <Country 
+          key={country.name.official} 
+          country={country} 
+          length={countriesSelected.length} />
+      )}
     </div>
   )
 }

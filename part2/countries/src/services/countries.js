@@ -11,8 +11,9 @@ const getAll = () => {
     return request.then(response => response.data)
 }
 
-const getByName = (country) => {
-    const request = axios.get(`${baseUrl}/api/name${country}`)
+const getByName = (countryName) => {
+    const request = axios.get(`${baseUrl}/api/name/${countryName}`)
+    console.log('request', `${baseUrl}/api/name/${countryName}`)
     return request.then(response => response.data)
 }
 

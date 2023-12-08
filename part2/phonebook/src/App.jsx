@@ -96,7 +96,7 @@ const App = () => {
         .deleteP(id)
         .then(() => {
           const updatedPersons = persons.filter((person) => person.id !== id)
-          setPersons(updatedPersons);
+          setPersons(updatedPersons)
         })
         .catch((error) => {
           console.error('Error deleting person:', error)
@@ -108,9 +108,9 @@ const App = () => {
               setNotification(null)
             }, 5000)
           // displayNotification(deleteMessage, returnedPerson.name)
-        });
+        })
     }
-  };
+  }
   
 
   return (

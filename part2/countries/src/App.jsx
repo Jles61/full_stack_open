@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 
 import Filter from './components/Filter'
+import Country from './components/Country'
 import countryService from './services/countries'
 
 const App = () => {
@@ -16,6 +17,8 @@ const App = () => {
   }
 
   useEffect(hook, [])
+
+  const countriesToShow = filter == '' ? [] : countries.filter((country) => country.name.common.toLowerCase().includes(filter.toLowerCase()))
 
   // useEffect(() => {
   //   console.log('effect run, countries found', countries)
@@ -36,6 +39,7 @@ const App = () => {
       <Filter filter={filter} setFilter={setFilter} />
       {console.log(countries)}
       {/* {countries.map()} */}
+      {countriesToShow.map(country => <Country key={country.name.official} country={country} />)}
     </div>
   )
 }

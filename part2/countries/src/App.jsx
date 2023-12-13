@@ -19,7 +19,6 @@ const App = () => {
   useEffect(hook, [])
 
   const countriesSelected = filter == '' ? [] : countries.filter((country) => country.name.common.toLowerCase().includes(filter.toLowerCase()))
-  const lengthOne = countriesSelected.length == 1
 
   // const countriesToShow = countriesSelected > 10 ? 'Too many matches, specify another filter' : countriesSelected
 
